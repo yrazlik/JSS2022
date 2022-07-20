@@ -1,0 +1,23 @@
+Read some input from console or from a text file.
+Input consists of words, split by whitespaces.
+
+Count number of occurences of each word.
+
+Insert each word and its number of occurences to a table.
+If you re-run the program with different input, you should update frequencies of existing
+words.
+
+Example:
+
+input: "hello my name is hello world hello is good"
+-----------------------------
+    TABLE word_count
+-----------------------------
+name   |   frequency
+- - - -  - - - - - - - -
+hello  |   3
+my     |   1
+name   |   1
+is     |   2
+world  |   1
+good   |   1

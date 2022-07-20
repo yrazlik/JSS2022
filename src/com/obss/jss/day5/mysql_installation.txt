@@ -1,0 +1,54 @@
+
+
+1- Download mysql server:
+https://dev.mysql.com/downloads/mysql/ -> for Mac
+https://dev.mysql.com/downloads/installer/ -> for windows
+
+2- Download Mysql Workbench: bu program database tablolarımızı görüntülemek, sorgular yazabilmek için kullancağımız, bize bir user interface sunan programdır.
+https://dev.mysql.com/downloads/workbench/
+
+3- 1. adımda indirdiğiniz dosyanın kurulumunu yapın -> windowsta installera tıklayın, accept agreement -> next -> developer default -> next -> check requirements adımında mysql workbench x.x.x seçilip execute tıklanır, next -> installation adımında execute butonuna tıklanır ve bir takım downloadların bitmesi beklenir, yüklemeler bittikten sonra next -> type and networking adımında değişiklik yapmadan next -> root password sorduğu adumda hepimizin standart olması için şifreye dbuser123 diyebiliriz (optional) -> next -> apply server configuration adımında default değerler bırakılır ve execute tıklanır -> finish -> next -> connect to server adımında user: root, password: şifreniz girilir ve check butonuna basılır, connection successful yazısı görünür, next -> finish.
+Mac: installer başlarılır -> accept licence -> install -> next -> use strong password encryption -> next -> root user için bir password belirlenir, hepimizin standart olması için şifreye dbuser123 diyebiliriz (optional), indirmenin bitmesi beklenir.
+
+4- 2. adımda indirdiğiniz dosyanın kurulumunu yapın. Mac'te kurulum yaptıktan sonra programı açarken “MySQLWorkbench” can’t be opened because Apple cannot check it for malicious software.  hatası alınırsa, system preferences->security&privacy altında general tabına gelerek "Open Anyway" butonuna basılabilir.
+
+5- Macte cmd+space ile spotlight search yaparak mysql.prefpane aranır. açılan pencerede start mysql server denir ve mysql server başlatılır. Windowsta da mysql server başlatılmadıysa başlatılır.
+
+6- Mysql workbench kurulumu bittikten sonra açılır. Ekrandaki local instance butonuna tıklanır. Kurulum adımında (3. adımda) root user için belirlenen şifre girilir ve bağlantının başarılı olduğu görülür.
+
+
+******
+
+7- Yeni bir db user'ı oluşturmak için aşağıdaki scriptler çalıştırılır.
+
+CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'dbuser';
+
+GRANT ALL PRIVILEGES ON * . * TO 'dbuser'@'localhost';
+
+ALTER USER 'dbuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbuser123';
+
+8- Workbenchte ana sayfaya dönülür, yeni connection oluşturulur (my connections altında + butonu). username: dbuser, test connectiona basılır, şifreye dbuser123 girilir. test connection successful olur.
+
+9- 
+
+CREATE DATABASE  IF NOT EXISTS `db_jss`;
+USE `db_jss`;
+
+
+DROP TABLE IF EXISTS `student`;
+
+CREATE TABLE `student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+10- create new folder under the root path of project called lib.
+
+11- Download mysql jdbc driver
+https://dev.mysql.com/downloads/connector/j/
+Platform independent
+
+Add it to lib folder. Eclipse-> project right click->properties->java build path->libraries->add jars->select mysql connector.

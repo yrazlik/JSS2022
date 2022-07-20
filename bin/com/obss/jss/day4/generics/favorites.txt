@@ -1,0 +1,20 @@
+Product: superclass
+    - int id
+    - double price
+
+Computer: subclass of Product
+    - int width
+    - int height
+
+Dress: subclass of Product
+    - String size (S, M, L, XL etc.)
+
+Favorites: **generic** class, contains an instance variable of **generic List**.
+    - addToFavorites(GenericType object) -> add this object to generic list of this class
+
+Main: Create a couple of products and add to favorites.
+
+Optional: Product -> Electronics -> Computer
+          Product -> Wearable -> Dress
+
+          only allow Electronics and its subclasses to be added to favorite list
