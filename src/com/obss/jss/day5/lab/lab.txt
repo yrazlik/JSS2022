@@ -1,0 +1,9 @@
+Contact App
+	1) Create "contacts" table if not exists in DB. 
+	   It should have id(int), first_name(varchar not null), last_name(varchar not null),email(varchar) columns
+	2) Prompt user input for one of the actions: search, insert, update, delete or exit.
+	3) Perform partial search for a given name (Tip: sql like). Search should work case insensitive.
+	4) Insert by entering first_name, last_name, email fields
+	5) Delete by id field
+	6) Update by id field and getting new first_name, last_name, email fields from console input
+	7) Use PreparedStatement for insert,select, update and delete operations.

@@ -2,13 +2,22 @@ package com.obss.jss.day4.generics.lab;
 
 public class Product {
 
-    protected int id;
+	protected String name;
+	protected int id;
     protected double price;
 
-    public Product(int id, double price) {
+    public Product(String name, int id, double price) {
+    	this.name = name;
         this.id = id;
         this.price = price;
     }
+    
+    public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
     public int getId() {
         return id;
@@ -24,5 +33,10 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    
+    @Override
+    public String toString() {
+    	return name;
     }
 }

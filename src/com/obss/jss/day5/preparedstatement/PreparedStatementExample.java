@@ -14,10 +14,11 @@ public class PreparedStatementExample {
     }
 
     public static void selectExample() {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         PreparedStatement preparedStatement = null;
         if(connection != null) {
             try {
+            	//String query = "select * from student where id=" + id + " and first_name=" + firstName;
                 String query = "select * from student where id=? and first_name=?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setInt(1, 1);

@@ -17,6 +17,7 @@ public class Main {
 
     public static void main(String[] args) {
         List<Cat> cats = new ArrayList<>();
+        List<Animal> animals = new ArrayList<Animal>();
         printObjects(cats);
         //printObjects2(cats);
     }

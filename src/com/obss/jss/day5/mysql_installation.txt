@@ -1,4 +1,6 @@
 
+Download linklerinde login olmaya gerek yok, sayfada "No thanks, begin my download" gibi 
+bir buton da olmalı.
 
 1- Download mysql server:
 https://dev.mysql.com/downloads/mysql/ -> for Mac

@@ -4,8 +4,8 @@ public class Dress extends Product {
 
     private String size;
 
-    public Dress(int id, double price, String size) {
-        super(id, price);
+    public Dress(String name, int id, double price, String size) {
+        super(name, id, price);
         this.size = size;
     }
 

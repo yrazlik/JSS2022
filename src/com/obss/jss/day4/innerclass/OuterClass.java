@@ -13,6 +13,8 @@ public class OuterClass {
     }
 
     private class InnerClass {
+    	
+    	private int x;
 
         public void printName() {
             System.out.println(name);

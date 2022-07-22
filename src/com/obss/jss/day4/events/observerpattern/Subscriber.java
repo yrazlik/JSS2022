@@ -1,5 +1,6 @@
 package com.obss.jss.day4.events.observerpattern;
 
+//event listener
 public class Subscriber implements NewsLetterListener {
 
     @Override

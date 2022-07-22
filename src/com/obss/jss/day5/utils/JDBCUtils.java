@@ -9,15 +9,29 @@ public class JDBCUtils {
     public static final String DB_USER = "dbuser";
     public static final String DB_PASSWORD = "dbuser123";
 
-    public static Connection connectToDb() {
+    public static Connection connectToDb(boolean printLog) {
+        return connect(JDBC_URL, DB_USER, DB_PASSWORD, printLog);
+    }
+    
+    public static Connection connectToDb(String connectionUrl, String user, String password, boolean printLog) {
+    	return connect(connectionUrl, user, password, printLog);
+    }
+    
+    private static Connection connect(String connectionUrl, String user, String password, boolean printLog) {
         try {
-            System.out.println("Connecting to db...");
-            Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD);
-            System.out.println("Connection successfull...");
+        	printLog(printLog, "Connecting to db...");
+            Connection conn = DriverManager.getConnection(connectionUrl, user, password);
+            printLog(printLog, "Connection successfull...");
             return conn;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    private static void printLog(boolean shouldPrint, String message) {
+    	if(shouldPrint) {
+    		System.out.println(message);
+    	}
     }
 }

@@ -40,7 +40,7 @@ public class SqlInjectionExample  {
     // 22 OR 1=1
     public static void executeSqlInjectionVulnerableCode(String accountNo) {
         String sql = "SELECT * FROM accounts WHERE account_no = " + accountNo;
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         Statement statement = null;
         if(connection != null) {
             try {
@@ -71,7 +71,7 @@ public class SqlInjectionExample  {
 
     // 22 OR 1=1
     public static void executeSqlInjectionSafeCode(String accountNo) {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         PreparedStatement preparedStatement = null;
         if(connection != null) {
             try {

@@ -5,26 +5,36 @@ import java.util.List;
 
 public class UpperBoundedWildcards {
 
-    public static void squareOfListItems(List<? extends Number> list) {
-        double number;
-        for (Number num : list){
-            number = num.doubleValue();
-            System.out.println(number * number);
-        }
+    public static void printNames(List<? extends Bird> birds) {
+    	for(Bird bird : birds) {
+    		System.out.println(bird.getName());
+    	}
     }
 
     public static void main(String[] args) {
-
-        List list = new ArrayList();
-        list.add(5);
-        list.add(2.5f);
-        list.add(3.0d);
-
-        //Accept Number and any of its sub types.
-        squareOfListItems(list);
-        System.out.println("Square of List of Double " +
-                "type using squareOfListItems method:");
-        squareOfListItems(list);
+        
+        Animal animal = new Animal();
+        Bird bird = new Bird();
+        Sparrow sparrow = new Sparrow();
+        Cat cat = new Cat();
+        
+        List<Bird> birds = new ArrayList<Bird>();
+        birds.add(bird);
+        printNames(birds);
+        
+        List<Animal> animals = new ArrayList<Animal>();
+        animals.add(animal);
+       // printNames(animals); // compile error
+        
+        List<Sparrow> sparrows = new ArrayList<Sparrow>();
+        sparrows.add(sparrow);
+        printNames(sparrows);
+        
+        List<Cat> cats = new ArrayList<Cat>();
+        cats.add(cat);
+       // printNames(cats); // compile error
+        
+        
 
         /*
             https://stackoverflow.com/questions/32421639/can-we-use-wildcards-at-class-level-in-java

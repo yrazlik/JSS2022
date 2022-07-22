@@ -1,5 +1,6 @@
 package com.obss.jss.day4.events.observerpattern;
 
+//event object
 public class News {
 
     public int newsId;

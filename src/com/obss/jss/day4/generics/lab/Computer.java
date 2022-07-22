@@ -1,12 +1,12 @@
 package com.obss.jss.day4.generics.lab;
 
-public class Computer extends Product{
+public class Computer extends Electronics{
 
     private int width;
     private int height;
 
-    public Computer(int id, double price, int width, int height) {
-        super(id, price);
+    public Computer(String name, int id, double price, int width, int height) {
+        super(name, id, price);
         this.width = width;
         this.height = height;
     }

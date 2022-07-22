@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class TransactionManagement {
 
     public static void main(String[] args) {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         if(connection != null) {
             try {
                 connection.setAutoCommit(false);
@@ -101,6 +101,6 @@ public class TransactionManagement {
     }
 
     public static boolean isSomethingWrong() {
-        return false;
+        return true;
     }
 }

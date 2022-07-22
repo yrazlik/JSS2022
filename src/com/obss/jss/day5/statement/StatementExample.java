@@ -16,13 +16,13 @@ public class StatementExample {
 
     public static void main(String[] args) {
         //selectExample();
-        insertExample();
+        //insertExample();
         //updateExample();
-        // deleteExample();
+         deleteExample();
     }
 
     public static void selectExample() {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         Statement statement = null;
         if(connection != null) {
             try {
@@ -53,7 +53,7 @@ public class StatementExample {
     }
 
     public static void insertExample() {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         Statement statement = null;
         if(connection != null) {
             try {
@@ -102,7 +102,7 @@ public class StatementExample {
     }
 
     public static void updateExample() {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         Statement statement = null;
         if(connection != null) {
             try {
@@ -132,12 +132,12 @@ public class StatementExample {
     }
 
     public static void deleteExample() {
-        Connection connection = JDBCUtils.connectToDb();
+        Connection connection = JDBCUtils.connectToDb(true);
         Statement statement = null;
         if(connection != null) {
             try {
                 statement = connection.createStatement();
-                String deleteQuery = "delete from student where last_name='Öztürk'";
+                String deleteQuery = "delete from student where last_name='TEST'";
                 int numOfRowsAffected = statement.executeUpdate(deleteQuery);
                 if(numOfRowsAffected > 0) {
                     System.out.println(numOfRowsAffected + " rows deleted...");
